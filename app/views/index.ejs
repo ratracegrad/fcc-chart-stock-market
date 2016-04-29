@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>FCC Chart Stock Market | Jennifer Bland</title>
+
+        <link rel="stylesheet" href="/public/vendor/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/public/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel='stylesheet' href='/public/stylesheets/style.css' />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="stockContainer">
+                <div class="col-xs-12">
+                    <h2 class="text-center title">STOCKS</h2>
+                    <span>ZOOM</span>
+                    <button class="btn btn-default">1M</button>
+                    <button class="btn btn-default">3M</button>
+                    <button class="btn btn-default">6M</button>
+                    <button class="btn btn-default">YTD</button>
+                    <button class="btn btn-default">1Y</button>
+                    <button class="btn btn-default">ALL</button>
+                </div>
+
+                <div class="stockChart"></div>
+
+                <hr>
+
+                <div class="col-md-4">
+                    <div class="stockInputContainer">
+                        <label for="stockName" class="control-label">Syncs in realtime across clients</label>
+                        <form method="POST" action="/api/addstock">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Stock code" required>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="submit">Add</button>
+                                    </span>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/public/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="/public/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
