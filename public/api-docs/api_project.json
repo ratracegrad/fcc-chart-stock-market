@@ -1,0 +1,1 @@
+{  "name": "FCC Chart Stock Market",  "version": "0.1.0",  "description": "Track stocks in real time",  "title": "apiDocs: FCC Chart Stock Market",  "url": "",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2016-04-29T11:10:18.754Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }}
