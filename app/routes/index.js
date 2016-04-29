@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 var routeHandler = require('../lib/routeHandler');
 
 /**
@@ -37,7 +38,7 @@ router.get('/api/addstock', function(req, res) {
 
 
 router.get('/api-docs', function(req, res) {
-    res.render('/public/api-docs/index');
+    res.sendFile(path.resolve('public/api-docs/index.html'));
 });
 
 // quandl api key is c_mESQnKLK9DxpsVU7pz

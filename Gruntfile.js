@@ -12,21 +12,7 @@ module.exports = function(grunt) {
 
     var eslintFiles = files;
 
-    var apidocFiles = [
-        'app/routes'
-    ];
-
     grunt.initConfig({
-
-        jscs: {
-            fix: {
-                src: eslintFiles,
-                options: {
-                    config: 'config.jscs.json',
-                    fix: true
-                }
-            }
-        },
 
         eslint: {
 
@@ -72,32 +58,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        apidoc: {
-            dispatch: {
-                src: apidocFiles,
-                dest: 'public/api-docs/'
-            }
-        },
-        jsdoc: {
-            dist: {
-                src: ['app/lib/*.js', 'app/routes/*.js', 'README.md'],
-                options: {
-                    destination: 'public/docs',
-                    template: 'node_modules/minami'
-                }
-            }
-        },
-        //shell: {
-        //    doswagger: {
-        //        command: 'node node_modules/apidoc-swagger/bin/apidocSwagger.js -i ./routes -o ./public/swagger',
-        //        options: {
-        //            //stderr: true,
-        //            execOptions: {
-        //                cwd: '.'
-        //            }
-        //        }
-        //    }
-        //},
         watch: {
             js: {
                 options: {
@@ -115,14 +75,8 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // register tasks
-    grunt.registerTask('default', ['lint', 'test', 'docs']);
+    grunt.registerTask('default', ['lint', 'test']);
     grunt.registerTask('test', ['mochacli:test']);
-    grunt.registerTask('docs', ['apidoc', 'jsdoc']);
-
     grunt.registerTask('lint', ['eslint:fix']);
-
-    // JSCS is still here, because running it fixes some things that eslint doesn't, that aren't worth fixin' by hand.
-    // if they ever fix things in different directions, though, eslint wins and you should change config.jscs.json
-    grunt.registerTask('dev-local-cleanup', ['jscs:fix']);
 
 };
