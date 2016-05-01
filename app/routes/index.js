@@ -1,45 +1,42 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
 var routeHandler = require('../lib/routeHandler');
 
-/**
- * @api {get} /  Display the home page
- * @apiName  Display the homepage
- * @apiGroup Routes
- *
- * @apiSuccess {html}  response homepage
- *
- */
 router.get('/', function(req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: '', results: '' });
 });
 
-/**
- * @api {get} /api/addstock Add new stock to be display
- * @apiName Add new stock
- * @apiGroup Routes
- *
- * @apiSuccess {Object} response object Add new stock
- * @apiSampleRequest /api/addstock
- * {
- *    show what is returned here
- * }
- *
- * apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *       show json data that is returned
- *     }
- */
-router.get('/api/addstock', function(req, res) {
+router.post('/:range?', function(req, res) {
+    var range = req.params.range || 'all';
 
+    routeHandler.getStockDetails(req.body.stockSymbol, range, function(err, results) {
+        if (err) {
+            return res.json(err);
+        }
+
+        res.render('index', { title: req.body.stockSymbol, results: results });
+
+    });
 });
 
 
-router.get('/api-docs', function(req, res) {
-    res.sendFile(path.resolve('public/api-docs/index.html'));
+// ---------------------------------
+// error handlers
+// ---------------------------------
+
+// catch 404 and forward to error handler
+router.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
-// quandl api key is c_mESQnKLK9DxpsVU7pz
+router.use(function(err, req, res) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
+
 module.exports = router;
