@@ -1,0 +1,34 @@
+{
+  "name": "fcc-chart-stock-market",
+  "description": "Free Code Camp Chart the Stock Market Application",
+  "main": "server.js",
+  "authors": [
+    "Jennifer Bland"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Free",
+    "Code",
+    "Camp",
+    "Chart",
+    "the",
+    "stock",
+    "market",
+    "jennifer",
+    "bland"
+  ],
+  "homepage": "https://github.com/ratracegrad/fcc-chart-stock-market",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "highcharts": "^4.2.4"
+  }
+}
