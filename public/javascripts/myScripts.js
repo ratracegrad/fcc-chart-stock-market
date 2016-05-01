@@ -94,6 +94,7 @@ function deleteStock(whichStock) {
     names = stockList.split(',');
     var index = names.indexOf(whichStock);
     names.splice(index, 1);
+    $('.stockList').val(names.join(','));
     displayStockList(names);
 
     function createChart() {
