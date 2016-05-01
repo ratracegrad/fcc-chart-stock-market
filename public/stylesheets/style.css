@@ -10,12 +10,13 @@ a {
 }
 
 .stockContainer {
-    background-color: #555;
+    /*background-color: #555;*/
     height: 600px !important;
 }
 
 .stockChart {
     height: 400px !important;
+    min-width: 310px;
 }
 
 .stockInputContainer {
@@ -26,6 +27,23 @@ a {
     padding: 15px 15px 25px;
 }
 
-.rightStock {
-    margin-right: 75px;
+.blankFiller {
+    margin-top: 25px;
+}
+
+.container {
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+#displayedStocks {
+    margin-top: 25px;
+}
+
+.oneStock {
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
