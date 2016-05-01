@@ -2,11 +2,12 @@ module.exports = function(grunt) {
 
     // file to watch and scan
     var files = [
-        'app/app.js',
         'server.js',
+        'app/app.js',
         'Gruntfile.js',
-        'app/lib/*.js',
+        'app/models/*.js',
         'app/routes/*.js',
+        'app/lib/*.js',
         'test/*.js'
     ];
 
@@ -14,8 +15,17 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        eslint: {
-
+         express: {
+             options: {
+                 port: 3000
+             },
+             dev:     {
+                 options: {
+                     script: 'server.js'
+                 }
+             }
+         },
+         eslint: {
             scan: {
                 src: eslintFiles,
                 options: {
@@ -59,6 +69,9 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            options: {
+                livereload: true
+            },
             js: {
                 options: {
                     spawn: true,
@@ -67,6 +80,13 @@ module.exports = function(grunt) {
                 },
                 files: files,
                 tasks: ['mochacli:watch']
+            },
+            express: {
+                files:  [ '**/*.js' ],
+                tasks:  [ 'express:dev' ],
+                options: {
+                    spawn: false
+                }
             }
         }
     });
@@ -78,5 +98,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['lint', 'test']);
     grunt.registerTask('test', ['mochacli:test']);
     grunt.registerTask('lint', ['eslint:fix']);
+    grunt.registerTask('server', ['express:dev', 'watch']);
 
 };
