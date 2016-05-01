@@ -15,17 +15,17 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-         express: {
-             options: {
-                 port: 3000
-             },
-             dev:     {
-                 options: {
-                     script: 'server.js'
-                 }
-             }
-         },
-         eslint: {
+        express: {
+            options: {
+                port: 3000
+            },
+            dev: {
+                options: {
+                    script: 'server.js'
+                }
+            }
+        },
+        eslint: {
             scan: {
                 src: eslintFiles,
                 options: {
@@ -82,8 +82,8 @@ module.exports = function(grunt) {
                 tasks: ['mochacli:watch']
             },
             express: {
-                files:  [ '**/*.js' ],
-                tasks:  [ 'express:dev' ],
+                files: ['**/*.js'],
+                tasks: ['express:dev'],
                 options: {
                     spawn: false
                 }
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // register tasks
-    grunt.registerTask('default', ['lint', 'test']);
+    grunt.registerTask('default', ['lint', 'test', 'server']);
     grunt.registerTask('test', ['mochacli:test']);
     grunt.registerTask('lint', ['eslint:fix']);
     grunt.registerTask('server', ['express:dev', 'watch']);
