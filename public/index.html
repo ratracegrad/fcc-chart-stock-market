@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>FCC Chart Stock Market | Jennifer Bland</title>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="stockContainer">
+
+                <div class="row">
+                    <div class="stockChart"></div>
+                </div>
+
+                <div class="row">
+                    <div class="blankFiller col-xs-12">
+                        <span class="stockList"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 col-xs-12">
+                        <div class="stockInputContainer">
+                            <label for="stockSymbol" class="control-label">Enter stock symbol to chart</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="stockSymbol" name="stockSymbol" placeholder="Stock code" required>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" onclick="addstock()">Add</button>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="displayedStocks">
+
+                </div>
+
+            </div><!-- stockContainer -->
+        </div><!-- container -->
+
+        <!-- Scripts -->
+        <script src="/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="/vendor/highcharts/highstock.js"></script>
+        <script src="/vendor/highcharts/modules/exporting.js"></script>
+        <script src="/javascripts/myScripts.js"></script>
+
+    </body>
+</html>
