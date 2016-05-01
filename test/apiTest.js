@@ -18,5 +18,19 @@ describe('Test of API routes', function() {
                 .expect(404, done);
     });
 
+    it('should return stock data when sent a stock symbol', function(done) {
+        request
+                .post('/')
+                .send({ stockSymbol: 'ko' })
+                .expect(200)
+                .expect('Content-Type', /text/)
+                .end(function(err, res) {
+                    if (err) {
+                        return done(err);
+                    }
+                    done();
+                });
+    });
+
 });
 
