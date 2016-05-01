@@ -1,27 +1,31 @@
 body {
-  padding: 50px;
-  font-family: Helvetica, Arial, sans-serif;
-  background-color: #333;
-  color: #eee;
+    padding: 50px;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #333;
+    color: #eee;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 .stockContainer {
-  background-color: #555;
-  height: 600px !important;
+    background-color: #555;
+    height: 600px !important;
 }
 
 .stockChart {
-  height: 400px !important;
+    height: 400px !important;
 }
 
 .stockInputContainer {
-  background-color: #eee;
-  color: #000;
-  border-radius: 8px;
-  border: 1px solid #eee;
-  padding: 15px 15px 25px;
+    background-color: #eee;
+    color: #000;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 15px 15px 25px;
+}
+
+.rightStock {
+    margin-right: 75px;
 }
